@@ -5,25 +5,28 @@
     "es2021": true
   },
   "extends": [
+    "react-app",
     "airbnb",
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
     "airbnb-typescript",
-    "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "plugin:prettier/recommended"
   ],
+  "parser": "@typescript-eslint/parser",
   "overrides": [
     {
-      "files": ["*.ts", "*.tsx"], // Your TypeScript files extension
+      "files": ["*.ts", "*.tsx", "*.spec.ts"],
+      "extends": [
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking"
+      ],
       "parserOptions": {
-        "project": ["./tsconfig.json"] // Specify it only for TypeScript files
+        "project": ["./tsconfig.json"]
       }
     }
   ],
-  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -82,7 +85,7 @@
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "import/prefer-default-export": "off",
-    "indent": ["error", 2, { "SwitchCase": 1 }],
+    "indent": ["error", 2],
     "quotes": [ "error", "single" ],
     "semi": [ "error", "never" ],
     "class-methods-use-this": "off",
@@ -136,12 +139,13 @@
     "object-curly-newline": "off",
     "object-shorthand": ["error", "always", { "ignoreConstructors": false, "avoidQuotes": true }],
     "react/jsx-props-no-spreading": "off",
-    // "sort-keys": "warn",
     "risxss/catch-potential-xss-react": "error",
     "@typescript-eslint/no-unnecessary-type-assertion": 0,
     "react/prop-types": "off",
     "react/require-default-props": "off",
     "jsx-a11y/no-noninteractive-element-interactions": "off",
-    "jsx-a11y/click-events-have-key-events": "off"
+    "jsx-a11y/click-events-have-key-events": "off",
+    "react/no-array-index-key": "warn",
+    "@typescript-eslint/no-unsafe-call": 0
   }
 }

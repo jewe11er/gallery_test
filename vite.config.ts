@@ -3,48 +3,46 @@ import react from '@vitejs/plugin-react'
 import eslintPlugin from '@nabla/vite-plugin-eslint'
 import compress from 'vite-plugin-compression'
 import svgrPlugin from 'vite-plugin-svgr'
-import { resolve } from 'path'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
-import path from 'path'
+import { resolve } from 'path'
 
 const common = {
-	resolve: {
-		alias: {
-			'@': resolve(__dirname, 'src'),
-		},
-	},
+  resolve: {
+    alias: {
+      '@': resolve(__dirname, 'src'),
+    },
+  },
 }
 
-const plugins = [
-	react(),
-	svgrPlugin({
-		svgrOptions: {
-			icon: true,
-		},
-	}),
-	createSvgIconsPlugin({
-    // Specify the icon folder to be cached
-    iconDirs: [path.resolve(process.cwd(), 'src/assets/icons')],
-    // Specify symbolId format
-    symbolId: 'icon-[name]',
-  }),
-]
-
 export default defineConfig(({ command }) => {
-	if (command === 'build') {
-		return {
-			...common,
-			plugins: [
-				compress(),
-				...plugins
-			],
-		}
-	}
-	return {
-		...common,
-		plugins: [
-			eslintPlugin(),
-			...plugins
-		],
-	}
+  if (command === 'build') {
+    return {
+      ...common,
+      plugins: [
+        react(),
+        compress(),
+        svgrPlugin({
+          svgrOptions: {
+            icon: true, // ...svgr options (https://react-svgr.com/docs/options/)
+          },
+        }),
+        createSvgIconsPlugin({
+          // Specify the icon folder to be cached
+          iconDirs: [ resolve(process.cwd(), 'src/assets/icons') ],
+          // Specify symbolId format
+          symbolId: 'icon-[name]',
+        }),
+      ],
+    }
+  }
+  return {
+    ...common,
+    plugins: [
+      react(),
+      eslintPlugin(),
+      svgrPlugin({
+        svgrOptions: { icon: true },
+      }),
+    ],
+  }
 })
