@@ -1,0 +1,8 @@
+{
+  "extends": ["stylelint-config-standard", "stylelint-config-standard-scss", "stylelint-config-prettier"],
+  "rules": {
+    "font-family-name-quotes": "always-where-recommended",
+    "function-name-case": ["lower", {"ignoreFunctions": ["customFunc"]}],
+    "selector-class-pattern": "([a-z0-9]{2,})([-_a-z0-9]*)"
+  }
+}

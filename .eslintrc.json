@@ -1,0 +1,147 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "airbnb",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "airbnb-typescript",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "plugin:prettier/recommended"
+  ],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"], // Your TypeScript files extension
+      "parserOptions": {
+        "project": ["./tsconfig.json"] // Specify it only for TypeScript files
+      }
+    }
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2021,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "import",
+    "react",
+    "@typescript-eslint",
+    "react-hooks",
+    "risxss"
+  ],
+  "globals": {
+    "React": true,
+    "google": true,
+    "mount": true,
+    "mountWithRouter": true,
+    "shallow": true,
+    "shallowWithRouter": true,
+    "context": true,
+    "expect": true,
+    "jsdom": true,
+    "JSX": true
+   },
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "typescript": {}
+    }
+  },
+  "rules": {
+    "no-console": "warn",
+    "no-debugger": "warn",
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": [ "error" ],
+    "react/jsx-filename-extension": [ 1, { "extensions": [ ".jsx", ".ts", ".tsx" ] } ],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "@typescript-eslint/no-unused-vars": "error",
+    "no-unused-vars": "off",
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": 0,
+    "func-names": [ "error", "as-needed" ],
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "no-tabs": [ "error", { "allowIndentationTabs": true } ],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "import/prefer-default-export": "off",
+    "indent": ["error", 2, { "SwitchCase": 1 }],
+    "quotes": [ "error", "single" ],
+    "semi": [ "error", "never" ],
+    "class-methods-use-this": "off",
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": true
+      }
+    ],
+    "no-param-reassign": [ 2, { "props": false } ],
+    "prettier/prettier": 0,
+    "react/function-component-definition": [ 2, { "namedComponents": "arrow-function" } ],
+    "object-curly-spacing": [ "error", "always" ],
+    "array-bracket-spacing": [ "error", "always" ],
+    "computed-property-spacing": [ "error", "never" ],
+    "no-return-await": 0,
+    "@typescript-eslint/comma-dangle": [
+      "warn",
+      {
+        "arrays": "always-multiline",
+        "enums": "always-multiline",
+        "exports": "always-multiline",
+        "generics": "never",
+        "functions": "never",
+        "imports": "never",
+        "objects": "always-multiline",
+        "tuples": "never"
+      }
+    ],
+    "@typescript-eslint/no-unsafe-assignment": "warn",
+    "@typescript-eslint/no-unsafe-return": "warn",
+    "@typescript-eslint/unbound-method": ["error", { "ignoreStatic": true }],
+    "arrow-parens": ["error", "as-needed"],
+    "comma-dangle": "off",
+    "lines-between-class-members": ["error", "always", { "exceptAfterSingleLine": true }],
+    "no-continue": "off",
+    "no-nested-ternary": "warn",
+    "no-plusplus": ["warn", { "allowForLoopAfterthoughts": true }],
+    "no-restricted-syntax": [
+      "error",
+      {
+        "selector": "LabeledStatement",
+        "message": "Labels are a form of GOTO; using them makes code confusing and hard to maintain and understand."
+      },
+      {
+        "selector": "WithStatement",
+        "message": "`with` is disallowed in strict mode because it makes code impossible to predict and optimize."
+      }
+    ],
+    "no-underscore-dangle": "off",
+    "object-curly-newline": "off",
+    "object-shorthand": ["error", "always", { "ignoreConstructors": false, "avoidQuotes": true }],
+    "react/jsx-props-no-spreading": "off",
+    // "sort-keys": "warn",
+    "risxss/catch-potential-xss-react": "error",
+    "@typescript-eslint/no-unnecessary-type-assertion": 0,
+    "react/prop-types": "off",
+    "react/require-default-props": "off",
+    "jsx-a11y/no-noninteractive-element-interactions": "off",
+    "jsx-a11y/click-events-have-key-events": "off"
+  }
+}
